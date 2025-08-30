@@ -20,6 +20,7 @@ resource "google_sql_database_instance" "postgres_instance" {
 
   settings {
     tier = "db-f1-micro" # Free tier / cheapest
+    edition = "ENTERPRISE" # Invalid Tier (db-f1-micro) for (ENTERPRISE_PLUS) Edition
   }
 }
 
@@ -49,6 +50,7 @@ resource "google_storage_bucket_object" "function_zip" {
 }
 
 resource "google_cloudfunctions_function" "function" {
+  region = var.region_for_cloud_functions
   name        = "pubsub-to-sql"
   runtime     = "python312"
   entry_point = "pubsub_handler"
