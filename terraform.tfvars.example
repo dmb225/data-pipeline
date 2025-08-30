@@ -1,0 +1,7 @@
+# Provide your actual variable values in terraform.tfvars
+# Make sure this file is included in .gitignore to avoid committing secrets
+project_id   = "your-gcp-project-id"
+region       = "your-region"
+db_name      = "your-db-name"
+db_user      = "your-db-user"
+db_password  = "your-db-password"
